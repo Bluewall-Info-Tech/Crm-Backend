@@ -5,6 +5,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const sequelize = require("./config/db");
 const path = require("path");
+require("./models/Vendor");
 
 
 const app = express();
@@ -15,6 +16,8 @@ app.use(morgan("dev"));
 
 // Routes
 app.use("/uploads", express.static("uploads"));
+
+app.use("/api/vendor", require("./routes/vendorRoutes"));
 
 app.get("/", (req, res) => res.send("Construction SQL API is live"));
 
