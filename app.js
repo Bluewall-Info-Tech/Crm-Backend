@@ -16,6 +16,9 @@ app.use(morgan("dev"));
 // Routes
 app.use("/uploads", express.static("uploads"));
 
+app.use("/api/project", require("./routes/projectRoutes"));
+
+
 app.get("/", (req, res) => res.send("Construction SQL API is live"));
 
 // ✅ Sync DB
