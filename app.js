@@ -14,6 +14,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // Routes
+app.use("/api/issue", require("./routes/issueRoutes"));
+
 app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => res.send("Construction SQL API is live"));
