@@ -5,9 +5,13 @@ const cors = require("cors");
 const morgan = require("morgan");
 const sequelize = require("./config/db");
 const path = require("path");
+auth-feature
+require("./models/User");
+
 require("./models/Expense"); 
 
 require("./models/Dashboard");
+ main
 
 
 const app = express();
@@ -17,6 +21,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // Routes
+app.use("/api/auth", require("./routes/authRoutes"));
+
 app.use("/uploads", express.static("uploads"));
 
 Expense-Page
