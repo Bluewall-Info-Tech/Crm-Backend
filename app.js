@@ -6,6 +6,8 @@ const morgan = require("morgan");
 const sequelize = require("./config/db");
 const path = require("path");
 
+require("./models/Dashboard");
+
 
 const app = express();
 
@@ -16,7 +18,9 @@ app.use(morgan("dev"));
 // Routes
 app.use("/uploads", express.static("uploads"));
 
-app.get("/", (req, res) => res.send("Construction SQL API is live"));
+app.use("/api/dashboard", require("./routes/dashboardRoutes"));
+
+app.get("/", (req, res) => res.send("Dashboard API is running..."));
 
 // ✅ Sync DB
 sequelize.sync({ alter: true })
