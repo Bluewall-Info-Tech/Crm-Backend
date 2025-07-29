@@ -18,6 +18,11 @@ app.use(morgan("dev"));
 app.use("/uploads", express.static("uploads"));
 
 // Routes
+ issue-Page
+app.use("/api/issue", require("./routes/issueRoutes"));
+
+app.use("/uploads", express.static("uploads"));
+=======
 app.get("/", (req, res) => {
   res.send("Project Photos API is running...");
 });
@@ -26,6 +31,7 @@ app.get("/", (req, res) => {
 financials
 app.use("/api/financials", require("./routes/financialRoutes"));
 
+ main
 
 app.get("/", (req, res) => res.send("Construction SQL API is live"));
 
