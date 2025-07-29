@@ -6,10 +6,8 @@ const sequelize = require("./config/db");
 
 photo-backend
 const path = require("path");
-require("./models/Vendor");
+require("./models/Log");
 
- financials
-require("./models/Financial");
 
 const app = express();
 
@@ -19,25 +17,17 @@ app.use(morgan("dev"));
 app.use("/uploads", express.static("uploads"));
 
 // Routes
- issue-Page
-app.use("/api/issue", require("./routes/issueRoutes"));
+app.use("/api/logs", require("./routes/logRoutes"));
+
 
 app.use("/uploads", express.static("uploads"));
-=======
+
 app.get("/", (req, res) => {
   res.send("Project Photos API is running...");
 });
 
 
-financials
-app.use("/api/financials", require("./routes/financialRoutes"));
 
- main
-
-app.use("/api/project", require("./routes/projectRoutes"));
-
-
-app.use("/api/vendor", require("./routes/vendorRoutes"));
 
 app.get("/", (req, res) => res.send("Construction SQL API is live"));
 
