@@ -33,6 +33,9 @@ app.use("/api/financials", require("./routes/financialRoutes"));
 
  main
 
+app.use("/api/project", require("./routes/projectRoutes"));
+
+
 app.get("/", (req, res) => res.send("Construction SQL API is live"));
 
 app.use("/api/dashboard", require("./routes/dashboardRoutes"));
