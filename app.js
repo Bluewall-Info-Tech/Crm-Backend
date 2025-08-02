@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const path = require("path");
 const sequelize = require("./config/db");
 
-// Models
+const path = require("path");
 require("./models/Log");
 require("./models/Vendor");
 
@@ -19,11 +19,13 @@ app.use("/uploads", express.static("uploads"));
 // Routes
 app.use("/api/logs", require("./routes/logRoutes"));
 app.use("/api/vendor", require("./routes/vendorRoutes"));
+app.use("/uploads", express.static("uploads"));
+app.use("/api/logs", require("./routes/logRoutes"));
+app.get("/", (req, res) => {
+  res.send("Project Photos API is running...");
+});
 app.use("/api/dashboard", require("./routes/dashboardRoutes"));
 app.use("/api/expenses", require("./routes/expenseEntryRoutes"));
-
-// Root route
-app.get("/", (req, res) => res.send("Expense Tracker API is running..."));
 
 // Sync DB
 sequelize.sync({ alter: true })
