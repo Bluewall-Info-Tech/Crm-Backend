@@ -2,12 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path");
 const sequelize = require("./config/db");
 
-photo-backend
 const path = require("path");
 require("./models/Log");
-
+require("./models/Vendor");
 
 const app = express();
 
@@ -18,23 +18,14 @@ app.use("/uploads", express.static("uploads"));
 
 // Routes
 app.use("/api/logs", require("./routes/logRoutes"));
-
-
+app.use("/api/vendor", require("./routes/vendorRoutes"));
 app.use("/uploads", express.static("uploads"));
-
+app.use("/api/logs", require("./routes/logRoutes"));
 app.get("/", (req, res) => {
   res.send("Project Photos API is running...");
 });
-
-
-
-
-app.get("/", (req, res) => res.send("Construction SQL API is live"));
-
 app.use("/api/dashboard", require("./routes/dashboardRoutes"));
-
-app.get("/", (req, res) => res.send("Dashboard API is running..."));
-main
+app.use("/api/expenses", require("./routes/expenseEntryRoutes"));
 
 // Sync DB
 sequelize.sync({ alter: true })

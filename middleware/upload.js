@@ -20,5 +20,5 @@ module.exports = multer({ storage });
 });
 
 const upload = multer({ storage });
-module.exports = upload;
 
+module.exports = upload;
