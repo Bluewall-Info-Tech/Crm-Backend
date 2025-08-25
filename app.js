@@ -5,7 +5,6 @@ const morgan = require("morgan");
 const path = require("path");
 const sequelize = require("./config/db");
 
-const path = require("path");
 require("./models/Log");
 require("./models/Vendor");
 
